@@ -9,12 +9,12 @@ namespace API.Clients
     {
         public async Task<GeocodingResponse> SearchLocationAsync(string lng, string PlaceName)
         {
-            string encoded = HttpUtility.UrlEncode(PlaceName);
+            
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"https://google-maps-geocoding.p.rapidapi.com/geocode/json?address={encoded}&language={lng}"),
+                RequestUri = new Uri($"https://google-maps-geocoding.p.rapidapi.com/geocode/json?address={PlaceName}&language={lng}"),
                 Headers =
     {
         { "X-RapidAPI-Key", "9b3587db25mshd3162b6b27916d3p1bc308jsn1c3fb06019fe" },

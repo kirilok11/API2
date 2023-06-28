@@ -16,11 +16,11 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "translate")]
-        public async Task<TranslationRequest> Place(string TEXT, string from, string to)
+        [HttpGet(Name = "translate")]
+        public async Task<TranslationResponse> Place(string TEXT, string from, string to)
         {
             TranslatorClient client = new TranslatorClient();
-            return client.Translate(TEXT, from, to).Result;
+            return client.TranslateAsync(TEXT, from, to).Result;
         }
     }
 }

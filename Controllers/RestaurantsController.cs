@@ -17,7 +17,7 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "PlacesAround")]
+        [HttpGet(Name = "RestaurantsAround")]
         public async Task< Root3> Place(string LAT, string LON, string RAD, string KIND, string KEYWORD) 
         {
             ReustarantsAndHotelsAroundClient client = new ReustarantsAndHotelsAroundClient();

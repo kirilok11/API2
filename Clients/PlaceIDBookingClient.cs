@@ -9,15 +9,15 @@ namespace API.Clients
 
     public class PlaceIDBookingClient
     {
-        public async Task<List<CityData>> SearchPlaceID(string place, string lng)
+        public async Task<List<CityData>> SearchPlaceID(string place)
         {
             
-            string encoded = HttpUtility.UrlEncode(place);
+            
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={encoded}&locale={lng}"),
+                RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={place}&locale=en-gb"),
                 Headers =
                     {
                     { "X-RapidAPI-Key", "9b3587db25mshd3162b6b27916d3p1bc308jsn1c3fb06019fe" },

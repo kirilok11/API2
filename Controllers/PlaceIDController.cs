@@ -15,11 +15,11 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "place id")]
-        public async Task<List<CityData>> Place(string place,string lng)
+        [HttpGet(Name = "place id for booking")]
+        public async Task<List<CityData>> Place(string place)
         {
             PlaceIDBookingClient client = new PlaceIDBookingClient();
-            return client.SearchPlaceID(lng,place ).Result;
+            return client.SearchPlaceID(place ).Result;
         }
     }
 }

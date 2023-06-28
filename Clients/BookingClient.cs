@@ -5,13 +5,20 @@ namespace API.Clients
 {
     public class BookingClient
     {
-        public async Task<RootBook> SearchHotels() 
+        public async Task<RootBook> SearchHotels(string CheckInDate, string DestType, string CheckOutDate, string NumOfAdults, string DestId, string NumOfRooms, string NumOfChildren, string AgeOfChildren ) 
         {
+            
+            int c = int.Parse(NumOfChildren);
+            if (c > 0) 
+            {
+                NumOfChildren = $"&children_number={NumOfChildren}";
+            }
+            else { NumOfChildren = "";AgeOfChildren = "0"; }
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("https://booking-com.p.rapidapi.com/v1/hotels/search?checkin_date=2023-09-27&dest_type=city&units=metric&checkout_date=2023-09-28&adults_number=2&order_by=popularity&dest_id=-553173&filter_by_currency=AED&locale=en-gb&room_number=1&children_number=2&children_ages=5%2C0&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&page_number=0&include_adjacency=true"),
+                RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/search?checkin_date={CheckInDate}&dest_type={DestType}&units=metric&checkout_date={CheckOutDate}&adults_number={NumOfAdults}&order_by=popularity&dest_id={DestId}&filter_by_currency=USD&locale=en-gb&room_number={NumOfRooms}{NumOfChildren}&children_ages={AgeOfChildren}&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&page_number=0&include_adjacency=true"),
                 Headers =
     {
         { "X-RapidAPI-Key", "9b3587db25mshd3162b6b27916d3p1bc308jsn1c3fb06019fe" },

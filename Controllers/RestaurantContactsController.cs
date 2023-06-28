@@ -18,7 +18,7 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "Contacts")]
+        [HttpGet(Name = "RestaurantsContacts")]
         public async Task<Contacts> Place(string PlaceID)
         {
             RestaurantContactsClient client = new RestaurantContactsClient();

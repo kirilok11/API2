@@ -15,12 +15,12 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "gpt")]
+        [HttpGet(Name = "gpt")]
         public async Task<APIResponse> Place(string cont)
         {
             GptClient client = new GptClient();
 
-            return client.ChatRespone(cont).Result;
+            return await client.ChatRespone(cont);
         }
     }
 }

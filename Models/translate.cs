@@ -2,17 +2,20 @@
 
 namespace API.Models
 {
-    
-    
-        public class TranslationRequest
-        {
-            [JsonProperty("text")]
-            public string Text { get; set; }
 
-            [JsonProperty("alternative_texts")]
-            public List<string> AlternativeTexts { get; set; }
-        }
 
-      
     
+    public class TranslationResponse
+    {
+        public string status { get; set; }
+        public ApiDatax data { get; set; }
+    }
+
+    public class ApiDatax
+    {
+        public string translatedText { get; set; }
+    }
+
+
+
 }

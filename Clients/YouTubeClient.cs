@@ -8,26 +8,13 @@ namespace API.Clients
     {
         public async Task<ApiResponseYT> SearchOnYT(string text) 
         {
-            string restext = "";
-            for (int c = 0; c < text.Length; c++)
-            {
-                if (text[c] == ' ')
-                {
-                    restext = restext + "%20";
-                }
-                else
-                {
-                    restext = restext + text[c];
-                }
-
-            }
-
+            
 
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"https://youtube-search-results.p.rapidapi.com/youtube-search/?q={restext}"),
+                RequestUri = new Uri($"https://youtube-search-results.p.rapidapi.com/youtube-search/?q={text}"),
                 Headers =
     {
         { "X-RapidAPI-Key", "9b3587db25mshd3162b6b27916d3p1bc308jsn1c3fb06019fe" },

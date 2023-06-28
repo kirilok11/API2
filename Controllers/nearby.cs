@@ -18,7 +18,7 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "PlacesAround1")]
+        [HttpGet(Name = "HistoriaclPlacesAround")]
         public async Task <Root1> Place1(string LAT, string LON, string RAD, string LANG, int NUM)
         {
             SearchNearByClient client = new SearchNearByClient();

@@ -16,7 +16,7 @@ namespace API.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "wiki")]
+        [HttpGet(Name = "wiki")]
         public async Task<WikiResponse> Place(string TEXT, int NumberOfArticles)
         {
             WikiClient client = new WikiClient();

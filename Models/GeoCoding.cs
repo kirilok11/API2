@@ -1,7 +1,7 @@
 ﻿namespace API.Models
 {
    
-
+    
 
 
     public class LocationData
